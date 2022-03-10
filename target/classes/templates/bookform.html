@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+
+<div th:if="${mensagem}" th:text="${mensagem}"></div>
+
+<form action="/book/form/save" method="post">
+    Nome: <input type="text", id="name", name="name"/>
+    Autor: <select name="autor">
+
+    <option th:each="autor: ${autorlist}"
+            th:value="${autor.id}"
+            th:text="${autor.name}" />
+
+</select>
+
+    <button type="submit">Salvar livro</button>
+
+</form>
+
+</body>
+</html>
